@@ -31,21 +31,39 @@ class Game:
     
     def print_board(self):
         symbols = {
-            1: ":one:",
-            2: ":two:",
-            3: ":three:",
-            4: ":four:",
-            5: ":five:",
-            6: ":six:",
-            7: ":seven:",
-            8: ":eight:",
-            0: ":blue_square:",
-            -1: ":boom:",
+            1: "1️⃣",
+            2: "2️⃣",
+            3: "3️⃣",
+            4: "4️⃣",
+            5: "5️⃣",
+            6: "6️⃣",
+            7: "7️⃣",
+            8: "8️⃣",
+            0: "🟦",
+            -1: "💥",
         }
-        self.board_str = ""
+        gui = {
+            1: ":regional_indicator_a:",
+            2: ":regional_indicator_b:",
+            3: ":regional_indicator_c:",
+            4: ":regional_indicator_d:",
+            5: ":regional_indicator_e:",
+            6: ":regional_indicator_f:",
+            7: ":regional_indicator_g:",
+            8: ":regional_indicator_h:",
+        }
+
+        self.board_str = "⬛⬛1️⃣2️⃣3️⃣4️⃣5️⃣6️⃣7️⃣8️⃣⬛⬛\n"
+        for i in range(12): self.board_str += "⬛"
+        
+        count = 1
         for i in self.board:
-            line = ""
+            line = "\n" + gui[count] + "⬛"
             for j in i:
                 line += symbols[j]
-            line += "\n"
+            line += "⬛" + gui[count]
             self.board_str += line
+            count += 1
+        self.board_str += "\n"
+        for i in range(12): self.board_str += "⬛"
+        self.board_str += "\n⬛⬛1️⃣2️⃣3️⃣4️⃣5️⃣6️⃣7️⃣8️⃣⬛⬛"
