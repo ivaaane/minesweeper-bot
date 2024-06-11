@@ -34,19 +34,16 @@ async def on_message(message):
         return
     if not active:
         
-        if message.content.startswith('!ms init'):
+        if message.content == ('!ms init'):
             game.init_game()
             active = True
             await message.channel.send(embed=game_loop()) 
             return
         
     else:
-        
-        try:
-            answer = message.content
+        if message.content.startswith('!'):
+            answer = message.content[1:]
             if game.reveal_tile(answer[0],answer[1],answer[2]):
                 await message.channel.send(embed=game_loop())
-        except:
-            await message.channel.send("There was an error with the commands code. Probably this feature isn't fully implementated.")
 
 client.run(TOKEN)

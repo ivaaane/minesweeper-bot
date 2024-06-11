@@ -58,13 +58,22 @@ class Game:
         self.board_str += "\n⬛⬛1️⃣2️⃣3️⃣4️⃣5️⃣6️⃣7️⃣8️⃣⬛⬛"
     
     # This takes the input of the player and reveals tiles!
-    def reveal_tile(self, mode, x, y):
-
-        if mode == "r": # If the input is revealing the tile
+    def reveal_tile(self, mode, a, b):
+        letters = {
+            "a":0,
+            "b":1,
+            "c":2,
+            "d":3,
+            "e":4,
+            "f":5,
+            "g":6,
+            "h":7,
+            }
+        y = letters[a]
+        x = int(b) - 1
+        if mode == "r": # Reveal
             self.display_board[y][x] = True
-
-        elif mode == "f": # If the input is putting a flag
+            return True
+        elif mode == "f": # Flag
             self.display_board[y][x] = "Flag"
-            
-        else:
-            return False # This tells the bot that an error has occurred
+            return True
