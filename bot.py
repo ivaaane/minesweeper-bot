@@ -33,29 +33,37 @@ def game_loop(author): # This sends the embed message to Discord
 @bot.tree.command(name="start", description="Start a new Minesweeper game.")
 async def init(interaction:discord.Interaction):
     if not game.active:
-        game.init()
+        game.init_stats()
         await interaction.response.send_message(embed=game_loop(interaction.user)) 
     else:
         await interaction.response.send_message(embed=
-                discord.Embed(description="A game by you has already started!", color=color))
+                discord.Embed(description=f"A game by {interaction.user.display_name} has already started!", color=color))
         
 # Continue game
 @bot.tree.command(name="r", description="Reveal a tile from the board.")
 async def reveal(interaction:discord.Interaction, row:str, column:int):
-    if game.reveal_tile(row, column):
-        await interaction.response.send_message(embed=game_loop(interaction.user))
+    if game.active:
+        if game.reveal_tile(row, column):
+            await interaction.response.send_message(embed=game_loop(interaction.user))
+        else:
+            await interaction.response.send_message(embed=
+                    discord.Embed(description="There was an error with the command syntax.", color=color))
     else:
         await interaction.response.send_message(embed=
-                discord.Embed(description="There was an error with the command syntax.", color=color))
+                    discord.Embed(description=f"There's no game active for {interaction.user.display_name}.", color=color))
         
 # Place flag
 @bot.tree.command(name="f", description="Place a flag in the board.")
 async def reveal(interaction:discord.Interaction, row:str, column:int):
-    if game.place_flag(row, column):
-        await interaction.response.send_message(embed=game_loop(interaction.user))
+    if game.active:
+        if game.place_flag(row, column):
+            await interaction.response.send_message(embed=game_loop(interaction.user))
+        else:
+            await interaction.response.send_message(embed=
+                    discord.Embed(description="There was an error with the command syntax.", color=color))
     else:
         await interaction.response.send_message(embed=
-                discord.Embed(description="There was an error with the command syntax.", color=color))
+                    discord.Embed(description=f"There's no game active for {interaction.user.display_name}.", color=color))
         
 # Help
 @bot.tree.command(name="help", description="Learn how to play.")

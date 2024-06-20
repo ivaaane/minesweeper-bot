@@ -1,8 +1,10 @@
 import random
 
 class Game:
-
-    def init(self):
+    def __init__(self):
+        self.active = False
+    
+    def init_stats(self):
         self.size_x = 8
         self.size_y = 8
         self.bombs = 10
@@ -13,7 +15,7 @@ class Game:
         self.active = True
     
     # This takes charge of all the board logic, placing bombs and numbers, and returning a list!
-    def init_game(self):
+    def create_board(self):
         self.board = [[0 for i in range(self.size_x)] for i in range(self.size_y)]
         bombs_placed = 0
         while bombs_placed < self.bombs:
@@ -45,8 +47,8 @@ class Game:
         self.turns += 1
         if self.turns == 1:
             while self.board[y][x] != 0:
-                self.init_game()
-        self.chain_reveal_num(y, x)
+                self.create_board()
+        self.chain_reveal_num(x, y)
         self.chain_reveal_zero()
         return True
 
@@ -57,7 +59,9 @@ class Game:
             y = letters[a]
             x = int(b) - 1
         else: return False
-        self.display_board[y][x] = "Flag"
+        if self.display_board[y][x] == False:
+            self.display_board[y][x] = "Flag"
+        else: return False
         self.turns += 1
         return True
 
@@ -86,9 +90,12 @@ class Game:
             if count >= self.board[y][x]:
                 for i in range(max(0, y - 1), min(self.size_y, y + 2)):
                     for j in range(max(0, x - 1), min(self.size_x, x + 2)):
-                        if self.display_board[i][j] != "Flag":
+                        if (self.display_board[i][j] != "Flag") and (self.board[i][j] != -1):
                             self.display_board[i][j] = True
-                                     
+
+
+
+
     # This turns the board list into fancy emojis for the embed!
     def print_board(self):
         symbols = {1:"1️⃣",2:"2️⃣",3:"3️⃣",4:"4️⃣",5:"5️⃣",6:"6️⃣",7:"7️⃣",8:"8️⃣",0:"🟦",-1:"💥"}
