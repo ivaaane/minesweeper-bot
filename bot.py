@@ -23,7 +23,7 @@ async def on_ready():
     
 def game_loop(author): # This sends the embed message to Discord
     game.print_board()
-    embed = discord.Embed(title=f"{author.display_name}'s Minesweeper game", color=color)
+    embed = discord.Embed(title=author.display_name, color=color)
     embed.add_field(name="Tiles", value=str(game.tiles), inline=True)
     embed.add_field(name="Turns", value=str(game.turns), inline=True)
     embed.add_field(name="", value=game.board_str, inline=False)
