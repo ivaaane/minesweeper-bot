@@ -3,7 +3,7 @@ import random
 class Game:
     def __init__(self):
         self.active = False
-    
+
     def init_stats(self):
         self.size_x = 10
         self.size_y = 10
@@ -13,7 +13,7 @@ class Game:
         self.board = [["Null" for i in range(self.size_x)] for i in range(self.size_y)]
         self.display_board = [[False for i in range(self.size_x)] for i in range(self.size_y)]
         self.active = True
-    
+
     # This takes charge of all the board logic, placing bombs and numbers, and returning a list!
     def create_board(self):
         self.board = [[0 for i in range(self.size_x)] for i in range(self.size_y)]
@@ -34,7 +34,7 @@ class Game:
                         if self.board[y][x] == -1:
                             count += 1
                 self.board[i][j] = count
-    
+
     # This takes the input of the player and reveals tiles!
     def reveal_tile(self, a, b):
         letters = {"a":0,"b":1,"c":2,"d":3,"e":4,"f":5,"g":6,"h":7,"i":8,"j":9}
@@ -78,7 +78,7 @@ class Game:
                                 
                                 if self.board[y][x] != -1:
                                      self.display_board[y][x] = True
-     
+
      # This is used to automatically reveal all tiles around a number that already has enough flags placed around!           
     def chain_reveal_num(self, x, y):
         if self.board[y][x] > 0:
@@ -92,9 +92,6 @@ class Game:
                     for j in range(max(0, x - 1), min(self.size_x, x + 2)):
                         if (self.display_board[i][j] != "Flag") and (self.board[i][j] != -1):
                             self.display_board[i][j] = True
-
-
-
 
     # This turns the board list into fancy emojis for the embed!
     def print_board(self):
