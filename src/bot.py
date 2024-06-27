@@ -45,6 +45,13 @@ async def reveal(interaction:discord.Interaction, row:str, column:int):
     if game.active:
         if game.reveal_tile(row, column):
             await interaction.response.send_message(embed=game_loop(interaction.user))
+            if not game.active:
+                await interaction.channel.send(embed=
+                        discord.Embed(description=f"{interaction.user.display_name}, you lost!", color=color))
+            elif game.tiles == 0:
+                await interaction.channel.send(embed=
+                        discord.Embed(description=f"{interaction.user.display_name}, YOU WON!!!", color=color))
+                game.active = False
         else:
             await interaction.response.send_message(embed=
                     discord.Embed(description="There was an error with the command syntax.", color=color))

@@ -8,10 +8,10 @@ class Game:
         self.size_x = 10
         self.size_y = 10
         self.bombs = 15
-        self.tiles = self.size_x * self.size_y
+        self.tiles = (self.size_x * self.size_y) - self.bombs
         self.turns = 0
-        self.board = [["Null" for i in range(self.size_x)] for i in range(self.size_y)]
-        self.display_board = [[False for i in range(self.size_x)] for i in range(self.size_y)]
+        self.board = [["Null" for i in range(self.size_y)] for i in range(self.size_x)]
+        self.display_board = [[False for i in range(self.size_y)] for i in range(self.size_x)]
         self.active = True
 
     # This takes charge of all the board logic, placing bombs and numbers, and returning a list!
@@ -38,18 +38,21 @@ class Game:
     # This takes the input of the player and reveals tiles!
     def reveal_tile(self, a, b):
         letters = {"a":0,"b":1,"c":2,"d":3,"e":4,"f":5,"g":6,"h":7,"i":8,"j":9}
-        if int(b) >= 0 and int(b) <= self.size_y and a in "abcdefghij":
+        if int(b) >= 0 and int(b) <= self.size_y and a in letters.keys():
             y = letters[a]
             x = int(b)
         else: return False
         
         self.display_board[y][x] = True
         self.turns += 1
+        self.tiles -= 1
         if self.turns == 1:
             while self.board[y][x] != 0:
                 self.create_board()
         self.chain_reveal_num(x, y)
         self.chain_reveal_zero()
+        if self.board[y][x] == -1:
+            self.lose()
         return True
 
     # This places flags in the board!
@@ -59,7 +62,7 @@ class Game:
             y = letters[a]
             x = int(b)
         else: return False
-        if self.display_board[y][x] == False:
+        if not self.display_board[y][x]:
             self.display_board[y][x] = "Flag"
         else: return False
         self.turns += 1
@@ -76,10 +79,11 @@ class Game:
                         for y in range(max(0, i - 1), min(self.size_y, i + 2)):
                             for x in range(max(0, j - 1), min(self.size_x, j + 2)):
                                 
-                                if self.board[y][x] != -1:
-                                     self.display_board[y][x] = True
+                                if self.board[y][x] != -1 and not self.display_board[y][x]:
+                                    self.tiles -= 1
+                                    self.display_board[y][x] = True
 
-     # This is used to automatically reveal all tiles around a number that already has enough flags placed around!           
+    # This is used to automatically reveal all tiles around a number that already has enough flags placed around!           
     def chain_reveal_num(self, x, y):
         if self.board[y][x] > 0:
             count = 0
@@ -90,8 +94,17 @@ class Game:
             if count >= self.board[y][x]:
                 for i in range(max(0, y - 1), min(self.size_y, y + 2)):
                     for j in range(max(0, x - 1), min(self.size_x, x + 2)):
-                        if (self.display_board[i][j] != "Flag") and (self.board[i][j] != -1):
+                        if self.display_board[i][j] != "Flag" and self.board[i][j] != -1:
+                            self.tiles -= 1
                             self.display_board[i][j] = True
+    
+    # This activates when a bomb is revealed!        
+    def lose(self):
+        for i in range(self.size_y):
+            for j in range(self.size_x):
+                if self.board[i][j] == -1:
+                    self.display_board[i][j] = True
+        self.active = False
 
     # This turns the board list into fancy emojis for the embed!
     def print_board(self):
