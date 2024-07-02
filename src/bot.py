@@ -81,8 +81,22 @@ async def place_flag(interaction: discord.Interaction, row: str, column: int):
 # Help
 @bot.tree.command(name="help", description="Learn how to play.")
 async def help(interaction: discord.Interaction):
-    await interaction.response.send_message(embed=
-    discord.Embed(description="I have to write this later dfgbhjki", color=color))
+    await interaction.response.send_message(
+    embed=discord.Embed(description="""
+    # Welcome to Minesweeper Bot!
+    
+    **Note:** The provided instructions will teach you how to interact with this bot. If you don't know how to play vanilla Minesweeper, I recommend [this article](https://minesweepergame.com/strategy/how-to-play-minesweeper.php).                   
+    
+    * Start a new game with the `/start` command. The GUI is composed of the board, displayed with emojis, the left tiles counter, the turn counter, and the name of the user.
+    * Reveal cells with `/r <row> <column>`. You'll need to provide the coordinates of your cell: they're displayed in the border of the board, the rows being represented with letters and columns with numbers. For example, `/r a 0` will reveal the cell in the top left side.
+    * Your first reveal will always be in an empty cell for safety.
+    * Same as `/r`, you can place flags with `/f <row> <column>`. Tip: if a number cell has as many flags around its 8 touching cells as the number displays, you can *reveal the number cell* to automatically reveal the remaining cells.
+    * The game advances one turn after each action. If you win or lose, a notification will display.
+    * You can always cancel your game with `/cancel`.
+
+    *Do you like this project and want to help make it better? Contribute on [GitHub](https://github.com/ivaaane/minesweeper-bot)!*
+    
+    """, color=color))
 
 # End game
 @bot.tree.command(name="cancel", description="Cancel your current Minesweeper game.")
