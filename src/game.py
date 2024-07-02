@@ -5,9 +5,9 @@ class Game:
         self.active = False
 
     def init_stats(self):
-        self.size_x = 10
-        self.size_y = 10
-        self.bombs = 15
+        self.size_x = 8
+        self.size_y = 8
+        self.bombs = 10
         self.tiles = (self.size_x * self.size_y) - self.bombs
         self.turns = 0
         self.board = [["Null" for i in range(self.size_y)] for i in range(self.size_x)]
@@ -43,9 +43,9 @@ class Game:
             x = int(b)
         else: return False
         
-        self.display_board[y][x] = True
+        if not self.display_board[y][x]: self.tiles -= 1
         self.turns += 1
-        self.tiles -= 1
+        self.display_board[y][x] = True
         if self.turns == 1:
             while self.board[y][x] != 0:
                 self.create_board()
@@ -94,11 +94,11 @@ class Game:
             if count >= self.board[y][x]:
                 for i in range(max(0, y - 1), min(self.size_y, y + 2)):
                     for j in range(max(0, x - 1), min(self.size_x, x + 2)):
-                        if self.display_board[i][j] != "Flag" and self.board[i][j] != -1:
+                        if not self.display_board[i][j] and self.display_board[i][j] != "Flag" and self.board[i][j] != -1:
                             self.tiles -= 1
                             self.display_board[i][j] = True
     
-    # This activates when a bomb is revealed!        
+    # This activates when a bomb is revealed!
     def lose(self):
         for i in range(self.size_y):
             for j in range(self.size_x):
@@ -111,8 +111,8 @@ class Game:
         symbols = {1:"1️⃣",2:"2️⃣",3:"3️⃣",4:"4️⃣",5:"5️⃣",6:"6️⃣",7:"7️⃣",8:"8️⃣",0:"🟦",-1:"💥"}
         gui = {1:"🇦",2:"🇧",3:"🇨",4:"🇩",5:"🇪",6:"🇫",7:"🇬",8:"🇭",9:"🇮",10:"🇯"}
 
-        self.board_str = "⬛⬛0️⃣1️⃣2️⃣3️⃣4️⃣5️⃣6️⃣7️⃣8️⃣9️⃣⬛⬛\n"
-        for i in range(14): self.board_str += "⬛"
+        self.board_str = "⬛⬛0️⃣1️⃣2️⃣3️⃣4️⃣5️⃣6️⃣7️⃣⬛⬛\n"
+        for i in range(12): self.board_str += "⬛"
         
         count = 1
         for idx, i in enumerate(self.board):
@@ -130,5 +130,5 @@ class Game:
             self.board_str += line
             count += 1
         self.board_str += "\n"
-        for i in range(14): self.board_str += "⬛"
-        self.board_str += "\n⬛⬛0️⃣1️⃣2️⃣3️⃣4️⃣5️⃣6️⃣7️⃣8️⃣9️⃣⬛⬛"
+        for i in range(12): self.board_str += "⬛"
+        self.board_str += "\n⬛⬛0️⃣1️⃣2️⃣3️⃣4️⃣5️⃣6️⃣7️⃣⬛⬛"
