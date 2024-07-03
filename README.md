@@ -4,21 +4,35 @@
   <p>💥 Play Minesweeper from Discord! 💥</p>
 </div>
 
-## About
+---
+
+#### Table of Contents
+
+- [About ](#about-)
+- [Usage ](#usage-)
+  - [How to play ](#how-to-play-)
+- [Contributing ](#contributing-)
+  - [Requirements ](#requirements-)
+  - [Steps ](#steps-)
+- [Acknowledgments ](#acknowledgments-)
+
+## About <a name="about"></a>
 
 <div align="center">
   <img src="assets/screenshot.png" alt="Screenshot" width="50%">
 </div>
 
+<br />
+
 Play the classic Minesweeper game on your server with this Discord bot! You can control the game
 with turn-based commands just as the original, play in parallel with your friends and try to get
 the biggest score. Featuring an 8×8 procedurally generated board with 10 mines to discover and evade.
 
-## Usage
+## Usage <a name="usage"></a>
 
 **[To add this bot to your server, click this link]().**
 
-### How to play
+### How to play <a name="how to play"></a>
 
 The provided instructions will teach you how to interact with this bot. If you don't know how to play vanilla
 Minesweeper, I recommend [this article](https://minesweepergame.com/strategy/how-to-play-minesweeper.php).
@@ -42,11 +56,11 @@ remaining cells.
 
 Use `/help` to view the instructions from the server.
 
-## Contributing
+## Contributing <a name="contributing"></a>
 
 If you want to make this project better ~~than what I could ever do~~, contributions are always welcome!
 
-### Requirements
+### Requirements <a name="requirements"></a>
 
 The project runs in Python 3 and the library Discord.py
 
@@ -54,7 +68,7 @@ The project runs in Python 3 and the library Discord.py
 pip install discord.py
 ```
 
-### Steps
+### Steps <a name="steps"></a>
 
 1. Fork the repository and clone it. `git clone https://github.com/YOUR-USERNAME/minesweeper-bot`
 2. Make a new branch and work on it. `git checkout -b new-feature`
@@ -62,7 +76,7 @@ pip install discord.py
 4. Push the branch. `git push origin new-feature`
 5. Open a pull request.
 
-## Acknowledgments
+## Acknowledgments <a name="aknowledgments"></a>
 
 * [Discord.py](https://discordpy.readthedocs.io/en/stable/) | framework
 * [Create Your Own Discord Bot in Python 3.10 Tutorial (2022 Edition)](https://www.youtube.com/watch?v=hoDLj0IzZMU) | tutorial
