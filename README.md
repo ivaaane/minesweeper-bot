@@ -12,8 +12,6 @@
 - [Usage ](#usage-)
   - [How to play ](#how-to-play-)
 - [Contributing ](#contributing-)
-  - [Requirements ](#requirements-)
-  - [Steps ](#steps-)
 - [Acknowledgments ](#acknowledgments-)
 
 ## About <a name="about"></a>
@@ -60,25 +58,20 @@ Use `/help` to view the instructions from the server.
 
 If you want to make this project better ~~than what I could ever do~~, contributions are always welcome!
 
-### Requirements <a name="requirements"></a>
-
-The project runs in Python 3 and the library Discord.py
-
-```bash
-pip install discord.py
-```
-
-### Steps <a name="steps"></a>
-
 1. Fork the repository and clone it. `git clone https://github.com/YOUR-USERNAME/minesweeper-bot`
-2. Make a new branch and work on it. `git checkout -b new-feature`
-3. Commit the changes. `git commit -m "Added the Thing."`
-4. Push the branch. `git push origin new-feature`
-5. Open a pull request.
+2. Install dependencies. `pip install -r requirements.txt`
+3. Make a new branch and work on it. `git checkout -b new-feature`
+4. Commit the changes. `git commit -m "Added the Thing."`
+5. Push the branch. `git push origin new-feature`
+6. Open a pull request.
 
 ## Acknowledgments <a name="aknowledgments"></a>
 
-* [Discord.py](https://discordpy.readthedocs.io/en/stable/) | framework
-* [Create Your Own Discord Bot in Python 3.10 Tutorial (2022 Edition)](https://www.youtube.com/watch?v=hoDLj0IzZMU) | tutorial
-* [Best README Template](https://github.com/othneildrew/Best-README-Template) | template
-* [Robert Donner's original Minesweeper](https://archive.org/details/win3_Mineswee) | original game
+
+| Link | Contribution |
+|---|---|
+| [Discord.py](https://discordpy.readthedocs.io/en/stable/) | Framework |
+| [Replit](https://replit.com), [UptimeRobot](https://uptimerobot.com) | Hosting |
+| [Create Your Own Discord Bot in Python 3.10](https://www.youtube.com/watch?v=hoDLj0IzZMU) | Tutorial |
+| [Best README Template](https://github.com/othneildrew/Best-README-Template) | Template |
+| [Robert Donner's original Minesweeper](https://archive.org/details/win3_Mineswee) | Original game |
