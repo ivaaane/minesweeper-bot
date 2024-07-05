@@ -30,6 +30,10 @@ the biggest score. Featuring an 8×8 procedurally generated board with 10 mines 
 
 **[To add this bot to your server, click this link]().**
 
+
+> [!WARNING]
+> **Currently, the bot isn't hosted, so it can't be used**. If you know how to setup a bot, feel free to use the source code to set the bot by yourself.
+
 ### How to play <a name="how to play"></a>
 
 The provided instructions will teach you how to interact with this bot. If you don't know how to play vanilla
@@ -71,7 +75,6 @@ If you want to make this project better ~~than what I could ever do~~, contribut
 | Link | Contribution |
 |---|---|
 | [Discord.py](https://discordpy.readthedocs.io/en/stable/) | Framework |
-| [Replit](https://replit.com), [UptimeRobot](https://uptimerobot.com) | Hosting |
 | [Create Your Own Discord Bot in Python 3.10](https://www.youtube.com/watch?v=hoDLj0IzZMU) | Tutorial |
 | [Best README Template](https://github.com/othneildrew/Best-README-Template) | Template |
 | [Robert Donner's original Minesweeper](https://archive.org/details/win3_Mineswee) | Original game |
