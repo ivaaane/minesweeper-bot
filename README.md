@@ -1,42 +1,21 @@
 <div align="center">
   <img src="assets/logo.png" alt="Logo" width="90" height="90">
   <h3>Minesweeper Bot</h3>
-  <p>💥 Play Minesweeper from Discord! 💥</p>
 </div>
 
----
-
-#### Table of Contents
-
-- [About ](#about-)
-- [Usage ](#usage-)
-  - [How to play ](#how-to-play-)
-- [Contributing ](#contributing-)
-- [Acknowledgments ](#acknowledgments-)
-
-## About <a name="about"></a>
-
-<div align="center">
-  <img src="assets/screenshot.png" alt="Screenshot" width="50%">
-</div>
-
-<br />
+## About
 
 Play the classic Minesweeper game on your server with this Discord bot! You can control the game
 with turn-based commands just as the original, play in parallel with your friends and try to get
 the biggest score. Featuring an 8×8 procedurally generated board with 10 mines to discover and evade.
 
-## Usage <a name="usage"></a>
+<img align="center" src="assets/screenshot.png" alt="Screenshot" width="25%">
 
-**[To add this bot to your server, click this link]().**
+## Usage
 
+### How to play
 
-> [!WARNING]
-> **Currently, the bot isn't hosted, so it can't be used**. If you know how to setup a bot, feel free to use the source code to set the bot by yourself.
-
-### How to play <a name="how to play"></a>
-
-The provided instructions will teach you how to interact with this bot. If you don't know how to play vanilla
+> The provided instructions will teach you how to interact with this bot. If you don't know how to play vanilla
 Minesweeper, I recommend [this article](https://minesweepergame.com/strategy/how-to-play-minesweeper.php).
 
 * Start a new game with the `/start` command. The GUI is composed of the board, displayed with emojis,
@@ -58,9 +37,7 @@ remaining cells.
 
 Use `/help` to view the instructions from the server.
 
-## Contributing <a name="contributing"></a>
-
-If you want to make this project better ~~than what I could ever do~~, contributions are always welcome!
+## Contributing
 
 1. Fork the repository and clone it. `git clone https://github.com/YOUR-USERNAME/minesweeper-bot`
 2. Install dependencies. `pip install -r requirements.txt`
@@ -69,8 +46,7 @@ If you want to make this project better ~~than what I could ever do~~, contribut
 5. Push the branch. `git push origin new-feature`
 6. Open a pull request.
 
-## Acknowledgments <a name="aknowledgments"></a>
-
+## Acknowledgments
 
 | Link | Contribution |
 |---|---|
