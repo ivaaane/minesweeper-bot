@@ -1,17 +1,29 @@
-<div align="center">
-  <img src="assets/logo.png" alt="Logo" width="90" height="90">
-  <h3>Minesweeper Bot</h3>
-</div>
+# Minesweeper Bot
 
 ## About
 
-Play the classic Minesweeper game on your server with this Discord bot! You can control the game
-with turn-based commands just as the original, play in parallel with your friends and try to get
-the biggest score. Featuring an 8×8 procedurally generated board with 10 mines to discover and evade.
-
-<img align="center" src="assets/screenshot.png" alt="Screenshot" width="25%">
+Play Minesweeper from your Discord server!
 
 ## Usage
+
+### Install
+
+First, create a new Discord bot profile and generate a token. Then, move to your terminal:
+
+```sh
+# Clone the repo
+git clone https://github.com/ivaaane/minesweeper-bot.git
+cd minesweeper-bot
+
+# Create a file to store the token
+touch src/.env
+
+# Place token
+echo "DISCORD_TOKEN={insert_your_token}" > src/.env
+
+# Execute
+python src/main.py
+```
 
 ### How to play
 
@@ -39,7 +51,7 @@ Use `/help` to view the instructions from the server.
 
 ## Contributing
 
-1. Fork the repository and clone it. `git clone https://github.com/YOUR-USERNAME/minesweeper-bot`
+1. Fork the repository and clone it. `git clone https://github.com/ivaaane/minesweeper-bot.git`
 2. Install dependencies. `pip install -r requirements.txt`
 3. Make a new branch and work on it. `git checkout -b new-feature`
 4. Commit the changes. `git commit -m "Added the Thing."`
@@ -52,5 +64,4 @@ Use `/help` to view the instructions from the server.
 |---|---|
 | [Discord.py](https://discordpy.readthedocs.io/en/stable/) | Framework |
 | [Create Your Own Discord Bot in Python 3.10](https://www.youtube.com/watch?v=hoDLj0IzZMU) | Tutorial |
-| [Best README Template](https://github.com/othneildrew/Best-README-Template) | Template |
 | [Robert Donner's original Minesweeper](https://archive.org/details/win3_Mineswee) | Original game |
