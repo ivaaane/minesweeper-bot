@@ -4,15 +4,20 @@ Play Minesweeper from your Discord server!
 
 ## Usage
 
-### Install
+### Host
 
-First, create a new Discord bot profile and generate a token. Then, move to your terminal:
+First, create a new Discord bot profile and generate a token. Then, do as following:
 
 ```sh
+# get the code
 git clone https://github.com/ivaaane/minesweeper-bot.git
 cd minesweeper-bot
+
+# store token
 touch src/.env
 echo "DISCORD_TOKEN={insert_your_token}" > src/.env
+
+# start bot
 python src/main.py
 ```
 
